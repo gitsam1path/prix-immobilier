@@ -1,0 +1,150 @@
+{
+  "donnees": {
+    "ventes": 2925,
+    "entrainement_2006_2009": 2584,
+    "test_2010": 341,
+    "variables_numeriques": 50,
+    "variables_categorielles": 32,
+    "prix_median": 160000.0
+  },
+  "modele_retenu": "Combinaison Lasso + LightGBM",
+  "resultats": [
+    {
+      "modele": "Combinaison Lasso + LightGBM",
+      "cv_rmse_log": 0.1066,
+      "cv_mae_dollars": 12189.3352,
+      "cv_mape": 7.2442,
+      "cv_mediane_ecart_pct": 4.9472,
+      "test_rmse_log": 0.1451,
+      "test_mae_dollars": 13329.6597,
+      "test_mape": 9.5518,
+      "test_mediane_ecart_pct": 5.76
+    },
+    {
+      "modele": "LightGBM",
+      "cv_rmse_log": 0.1105,
+      "cv_mae_dollars": 12708.6653,
+      "cv_mape": 7.5167,
+      "cv_mediane_ecart_pct": 5.0829,
+      "test_rmse_log": 0.1463,
+      "test_mae_dollars": 13262.1333,
+      "test_mape": 9.5515,
+      "test_mediane_ecart_pct": 5.683
+    },
+    {
+      "modele": "Ridge (toutes les variables)",
+      "cv_rmse_log": 0.1107,
+      "cv_mae_dollars": 12917.2159,
+      "cv_mape": 7.6868,
+      "cv_mediane_ecart_pct": 5.3905,
+      "test_rmse_log": 0.1483,
+      "test_mae_dollars": 14605.3986,
+      "test_mape": 10.104,
+      "test_mediane_ecart_pct": 6.8577
+    },
+    {
+      "modele": "Lasso (toutes les variables)",
+      "cv_rmse_log": 0.111,
+      "cv_mae_dollars": 12991.4906,
+      "cv_mape": 7.7181,
+      "cv_mediane_ecart_pct": 5.4502,
+      "test_rmse_log": 0.1486,
+      "test_mae_dollars": 14442.5534,
+      "test_mape": 10.0639,
+      "test_mediane_ecart_pct": 6.764
+    },
+    {
+      "modele": "Forêt aléatoire",
+      "cv_rmse_log": 0.1237,
+      "cv_mae_dollars": 14591.4242,
+      "cv_mape": 8.5701,
+      "cv_mediane_ecart_pct": 5.9452,
+      "test_rmse_log": 0.161,
+      "test_mae_dollars": 14788.2016,
+      "test_mape": 10.6367,
+      "test_mediane_ecart_pct": 6.0569
+    },
+    {
+      "modele": "Régression linéaire (5 variables)",
+      "cv_rmse_log": 0.1549,
+      "cv_mae_dollars": 19369.6869,
+      "cv_mape": 11.5776,
+      "cv_mediane_ecart_pct": 8.3331,
+      "test_rmse_log": 0.1882,
+      "test_mae_dollars": 19709.2251,
+      "test_mape": 13.9218,
+      "test_mediane_ecart_pct": 9.9768
+    },
+    {
+      "modele": "Référence (prix au m² du quartier)",
+      "cv_rmse_log": 0.2195,
+      "cv_mae_dollars": 29370.0961,
+      "cv_mape": 17.4699,
+      "cv_mediane_ecart_pct": 12.6732,
+      "test_rmse_log": 0.2615,
+      "test_mae_dollars": 29952.046,
+      "test_mape": 20.8428,
+      "test_mediane_ecart_pct": 13.618
+    }
+  ],
+  "intervalle_90": {
+    "facteur": 1.158,
+    "couverture_test_pct": 85.3,
+    "largeur_mediane_dollars": 45249.0
+  },
+  "lasso": {
+    "variables_conservees": 139,
+    "variables_totales": 241
+  },
+  "effets_simulation_pct": {
+    "+1 point de qualité générale (sur 10)": 5.7,
+    "+10 m² habitables": 2.6,
+    "+10 m² de sous-sol": 0.9,
+    "+1 place de garage": 2.8,
+    "+10 ans d'âge": -1.3,
+    "+1 cran de qualité de cuisine": 1.5,
+    "+1 cheminée": 1.5
+  },
+  "importance_lightgbm": {
+    "qualite_x_surface": 0.0597,
+    "surface_totale": 0.0243,
+    "Overall Qual": 0.0175,
+    "Overall Cond": 0.0105,
+    "Lot Area": 0.0049,
+    "age_a_la_vente": 0.0046,
+    "salles_de_bain": 0.0045,
+    "MS Zoning": 0.0043,
+    "Year Built": 0.0039,
+    "Kitchen Qual": 0.0035,
+    "Total Bsmt SF": 0.0033,
+    "annees_depuis_renovation": 0.0027
+  },
+  "erreur_par_tranche_de_prix": {
+    "1er quart (moins chères)": 8.7,
+    "2e quart": 4.1,
+    "3e quart": 6.1,
+    "4e quart (plus chères)": 5.4
+  },
+  "erreur_par_condition_de_vente": {
+    "Abnorml": {
+      "ventes": 22,
+      "erreur_mediane_pct": 16.6
+    },
+    "Alloca": {
+      "ventes": 2,
+      "erreur_mediane_pct": 57.8
+    },
+    "Family": {
+      "ventes": 3,
+      "erreur_mediane_pct": 9.7
+    },
+    "Normal": {
+      "ventes": 301,
+      "erreur_mediane_pct": 5.3
+    },
+    "Partial": {
+      "ventes": 13,
+      "erreur_mediane_pct": 6.8
+    }
+  }
+}
